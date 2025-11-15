@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Garud - Student-Led Drone Innovation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+        .header-scrolled { backdrop-filter: blur(6px); padding-top: 6px !important; padding-bottom: 6px !important; box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #f59e0b; /* Amber-500 for underline */
+            box-shadow: 0 2px 8px 0 rgba(245, 158, 11, 0.5);
+            transition: width 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+        }
+        .nav-underline:hover::after {
+            width: 100%;
+            box-shadow: 0 2px 12px 0 rgba(245, 158, 11, 0.8);
+        }
+        /* Mobile nav: show dropdown when .active is toggled */
+        @media (max-width: 767px) {
+            .nav-links { display: none !important; }
+            .nav-links.active {
+                display: flex !important;
+                flex-direction: column;
+                gap: 0.75rem;
+                position: absolute;
+                top: 64px;
+                right: 1rem;
+                background: rgba(255,255,255,0.98);
+                padding: 0.75rem;
+                border-radius: 0.5rem;
+                box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+                z-index: 60;
+            }
+            .nav-links.active a { padding: 0.5rem 1rem; }
+        }
+
+        .nav-links a.active { color: #dc2626; font-weight: 700; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-1 { animation: fadeIn 1s ease forwards; }
+        .fade-in-1-5 { animation: fadeIn 1.5s ease forwards; opacity: 0; }
+        .fade-in-2 { animation: fadeIn 2s ease forwards; opacity: 0; }
+        
+        /* Custom gradient backgrounds */
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #60a5fa 100%);
+        }
+        .section-gradient {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+        .footer-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden scroll-smooth">
+    <!-- Header & Navigation -->
+    <header id="header" class="fixed top-0 left-0 w-full bg-white/95 shadow-md z-50 transition-all duration-300">
+        <div class="w-11/12 max-w-5xl mx-auto px-4">
+            <nav class="flex justify-between items-center py-5 transition-all duration-300">
+                <a href="#" class="logo flex items-center font-bold text-2xl text-gray-900">
+                    <img src="logo.png" alt="Team Garud Logo" class="w-10 h-10 mr-3 rounded-md" />
+                    <span class="leading-none text-xl">Team Garud</span>
+                </a>
+                <ul id="primary-navigation" class="nav-links hidden md:flex list-none gap-8">
+                    <li><a href="#home" class="nav-underline text-gray-900 font-medium transition-colors duration-300 relative hover:text-blue-600">Home</a></li>
+                    <li><a href="#about" class="nav-underline text-gray-900 font-medium transition-colors duration-300 relative hover:text-blue-600">About</a></li>
+                    <li><a href="#projects" class="nav-underline text-gray-900 font-medium transition-colors duration-300 relative hover:text-blue-600">Projects</a></li>
+                    <li><a href="#team" class="nav-underline text-gray-900 font-medium transition-colors duration-300 relative hover:text-blue-600">Team</a></li>
+                    <li><a href="#contact" class="nav-underline text-gray-900 font-medium transition-colors duration-300 relative hover:text-blue-600">Contact</a></li>
+                </ul>
+                <button class="hamburger block md:hidden cursor-pointer text-2xl p-2 rounded-md" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen hero-gradient flex items-center pt-20 pb-12">
+        <div class="w-11/12 max-w-6xl mx-auto px-4 shadow-xl rounded-2xl bg-white/10 backdrop-blur-md">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="hero-content">
+                    <h1 class="fade-in-1 text-5xl lg:text-6xl font-extrabold mb-6 text-white leading-tight">Innovating the Future of Aerial Technology</h1>
+                    <p class="fade-in-1-5 text-xl text-blue-100 mb-8 leading-relaxed">Team Garud is a student-led drone startup focused on pushing the boundaries of engineering, innovation, and aerial solutions for real-world challenges.</p>
+                    <div class="hero-btns fade-in-2 flex flex-col sm:flex-row gap-5">
+                        <a href="#projects" class="btn px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold uppercase tracking-wide shadow-lg hover:bg-blue-50 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-200 text-center transition-all duration-300">View Our Drones</a>
+                        <a href="#contact" class="btn px-8 py-3 bg-amber-500 text-white rounded-lg font-semibold uppercase tracking-wide shadow-lg hover:bg-amber-400 hover:-translate-y-1 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-amber-200 text-center transition-all duration-300">Join Our Team</a>
+                    </div>
+                </div>
+
+                <!-- Right Drone Image -->
+                <div class="hero-image fade-in-2 flex justify-center lg:justify-end">
+                    <img src="drone.jpg" alt="Drone" class="w-80 h-80 lg:w-96 lg:h-96 object-cover rounded-2xl shadow-2xl hover:shadow-3xl transition-transform duration-300 hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-gradient py-20">
+        <div class="w-11/12 max-w-5xl mx-auto px-4 shadow-xl rounded-2xl bg-white/80 backdrop-blur-md">
+            <h2 class="text-5xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-blue-600">About Team Garud</h2>
+            <div class="about-content flex flex-col lg:flex-row items-center gap-12">
+                <div class="about-text flex-1">
+                    <p class="text-gray-700 mb-4 leading-relaxed">Team Garud was founded in 2022 by a group of passionate engineering students with a shared vision for revolutionizing aerial technology. Our mission is to develop innovative drone solutions that address real-world challenges across various industries.</p>
+                    <p class="text-gray-700 mb-4 leading-relaxed">We specialize in designing and building custom drones for applications in agriculture, surveillance, delivery, and environmental monitoring. Our team combines expertise in aerodynamics, electronics, software development, and data analysis to create cutting-edge solutions.</p>
+                    <p class="text-gray-700 mb-6 leading-relaxed">With multiple successful projects and industry partnerships, we continue to push the boundaries of what's possible with drone technology while fostering the next generation of aerospace engineers.</p>
+                    <a href="#contact" class="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold uppercase tracking-wide transition-all duration-300 hover:bg-blue-700 hover:-translate-y-1 hover:shadow-lg inline-block">Learn More</a>
+                </div>
+                <div class="about-image flex-1 rounded-lg overflow-hidden shadow-2xl hover:shadow-3xl transition-transform duration-300 group">
+                    <img src="logo.png" alt="Team Garud working on a drone" class="w-full h-auto block transition-transform duration-300 group-hover:scale-105">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-gradient py-20">
+        <div class="w-11/12 max-w-5xl mx-auto px-4 shadow-xl rounded-2xl bg-white/80 backdrop-blur-md">
+            <h2 class="text-5xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-blue-600">Our Drone Projects</h2>
+            <div class="projects-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="project-img h-48 overflow-hidden">
+                        <img src="logo.png" alt="Agricultural Drone" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="project-info p-5">
+                        <h3 class="text-xl font-semibold text-blue-600 mb-2">AgriScan X1</h3>
+                        <p class="text-gray-600 mb-4 text-sm">An agricultural drone equipped with multispectral sensors for crop health monitoring, soil analysis, and precision farming applications.</p>
+                        <a href="#" class="px-6 py-2 bg-amber-500 text-white rounded-lg text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:bg-amber-400 inline-block">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="project-img h-48 overflow-hidden">
+                        <img src="logo.png" alt="Surveillance Drone" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="project-info p-5">
+                        <h3 class="text-xl font-semibold text-blue-600 mb-2">Vigilant Eye</h3>
+                        <p class="text-gray-600 mb-4 text-sm">A high-endurance surveillance drone with advanced imaging capabilities for security, monitoring, and emergency response operations.</p>
+                        <a href="#" class="px-6 py-2 bg-amber-500 text-white rounded-lg text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:bg-amber-400 inline-block">View Details</a>
+                    </div>
+                </div>
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+                    <div class="project-img h-48 overflow-hidden">
+                        <img src="logo.png" alt="Delivery Drone" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <div class="project-info p-5">
+                        <h3 class="text-xl font-semibold text-blue-600 mb-2">SwiftDrop</h3>
+                        <p class="text-gray-600 mb-4 text-sm">A delivery drone designed for efficient last-mile logistics with payload capacity optimization and advanced navigation systems.</p>
+                        <a href="#" class="px-6 py-2 bg-amber-500 text-white rounded-lg text-sm font-semibold uppercase tracking-wide transition-all duration-300 hover:bg-amber-400 inline-block">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team section-gradient py-20">
+        <div class="w-11/12 max-w-5xl mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-blue-600">Meet Our Team</h2>
+            <div class="team-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="team-member text-center p-5 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-1">
+                    <div class="member-img w-40 h-40 rounded-full overflow-hidden mx-auto mb-5 border-4 border-white shadow-lg">
+                        <img src="drone.jpg" alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Sudhanshu Nandan</h3>
+                    <div class="member-role text-blue-600 font-semibold mb-3 text-sm">Founder & CEO</div>
+                    <p class="text-gray-600 text-sm mb-4">Aerospace engineering graduate with a passion for unmanned systems and aerial innovation.</p>
+                    <div class="social-links flex justify-center gap-3">
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-linkedin-in text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-github text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="team-member text-center p-5 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-1">
+                    <div class="member-img w-40 h-40 rounded-full overflow-hidden mx-auto mb-5 border-4 border-white shadow-lg">
+                        <img src="drone.jpg" alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Sindhuja Nandan</h3>
+                    <div class="member-role text-blue-600 font-semibold mb-3 text-sm">Lead Engineer</div>
+                    <p class="text-gray-600 text-sm mb-4">Mechanical engineering specialist focused on drone design, aerodynamics, and propulsion systems.</p>
+                    <div class="social-links flex justify-center gap-3">
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-linkedin-in text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-github text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="team-member text-center p-5 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-1">
+                    <div class="member-img w-40 h-40 rounded-full overflow-hidden mx-auto mb-5 border-4 border-white shadow-lg">
+                        <img src="drone.jpg" alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Satish Shekhar</h3>
+                    <div class="member-role text-blue-600 font-semibold mb-3 text-sm">Software Developer</div>
+                    <p class="text-gray-600 text-sm mb-4">Computer science expert specializing in flight control systems, autonomy, and data processing.</p>
+                    <div class="social-links flex justify-center gap-3">
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-linkedin-in text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-github text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="team-member text-center p-5 rounded-xl transition-all duration-300 hover:bg-white hover:shadow-lg hover:-translate-y-1">
+                    <div class="member-img w-40 h-40 rounded-full overflow-hidden mx-auto mb-5 border-4 border-white shadow-lg">
+                        <img src="drone.jpg" alt="Team Member" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Saumya Sharma</h3>
+                    <div class="member-role text-blue-600 font-semibold mb-3 text-sm">Business Development</div>
+                    <p class="text-gray-600 text-sm mb-4">Marketing and business strategist with experience in tech startups and industry partnerships.</p>
+                    <div class="social-links flex justify-center gap-3">
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-linkedin-in text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-100 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white transition-all duration-300"><i class="fab fa-github text-sm"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-gradient py-20">
+        <div class="w-11/12 max-w-5xl mx-auto px-4">
+            <h2 class="text-5xl font-bold text-center mb-12 relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-20 after:h-1 after:bg-blue-600">Get In Touch</h2>
+            <div class="contact-container flex flex-col lg:flex-row gap-12">
+                <div class="contact-info flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Contact Information</h3>
+                    <p class="text-gray-600 mb-6">Interested in our work? Want to collaborate or join our team? Reach out to us!</p>
+                    <div class="info-item flex items-start mb-6">
+                        <i class="fas fa-map-marker-alt text-2xl text-blue-600 mr-4 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-1">Our Location</h4>
+                            <p class="text-gray-600 text-sm">University Innovation Center, Tech Park, City</p>
+                        </div>
+                    </div>
+                    <div class="info-item flex items-start mb-6">
+                        <i class="fas fa-envelope text-2xl text-blue-600 mr-4 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-1">Email Us</h4>
+                            <p class="text-gray-600 text-sm">contact@teamgarud.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item flex items-start">
+                        <i class="fas fa-phone text-2xl text-blue-600 mr-4 mt-1"></i>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-1">Call Us</h4>
+                            <p class="text-gray-600 text-sm">+91 9508101306</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form flex-1">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
+                    <form id="contactForm" class="space-y-5">
+                        <div class="form-group">
+                            <input type="text" class="form-control w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-300" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-300" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-300" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control w-full px-4 py-3 border border-gray-300 rounded-lg focus:border-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-200 transition-all duration-300 min-h-40 resize-vertical" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold uppercase tracking-wide transition-all duration-300 hover:bg-blue-700 hover:-translate-y-1 hover:shadow-lg w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-gradient text-white py-16">
+        <div class="w-11/12 max-w-5xl mx-auto px-4">
+            <div class="footer-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                <div class="footer-column">
+                    <h3 class="text-white text-xl font-bold mb-5">Team Garud</h3>
+                    <p class="text-gray-300 text-sm mb-4">Innovating the future of aerial technology through engineering excellence and student-driven innovation.</p>
+                    <div class="social-links flex gap-3">
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-600 rounded-full text-white hover:bg-blue-600 transition-all duration-300"><i class="fab fa-twitter text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-600 rounded-full text-white hover:bg-blue-600 transition-all duration-300"><i class="fab fa-facebook-f text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-600 rounded-full text-white hover:bg-blue-600 transition-all duration-300"><i class="fab fa-instagram text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-600 rounded-full text-white hover:bg-blue-600 transition-all duration-300"><i class="fab fa-linkedin-in text-sm"></i></a>
+                        <a href="#" class="w-9 h-9 flex items-center justify-center bg-gray-600 rounded-full text-white hover:bg-blue-600 transition-all duration-300"><i class="fab fa-youtube text-sm"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3 class="text-white text-lg font-bold mb-5">Quick Links</h3>
+                    <ul class="footer-links space-y-2">
+                        <li><a href="#home" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">About Us</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Our Projects</a></li>
+                        <li><a href="#team" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Our Team</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="text-white text-lg font-bold mb-5">Our Services</h3>
+                    <ul class="footer-links space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Drone Design & Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Aerial Photography & Mapping</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Precision Agriculture</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Surveillance Solutions</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300 text-sm">Custom Drone Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3 class="text-white text-lg font-bold mb-5">Newsletter</h3>
+                    <p class="text-gray-300 text-sm mb-4">Subscribe to our newsletter for the latest updates on our projects and innovations.</p>
+                    <form class="newsletter-form space-y-2">
+                        <div class="form-group">
+                            <input type="email" class="form-control w-full px-4 py-2 rounded-lg border bg-gray-700 text-white placeholder-gray-400 focus:border-blue-400 focus:ring-2 focus:ring-blue-200 focus:outline-none text-sm" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="px-4 py-2 bg-amber-500 text-white rounded-lg font-semibold text-sm uppercase tracking-wide transition-all duration-300 hover:bg-amber-400 w-full focus:outline-none focus:ring-2 focus:ring-amber-200">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright text-center pt-8 border-t border-gray-600 text-gray-300 text-sm">
+                <p>&copy; 2025 Team Garud. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        // Toggle mobile nav and update aria-expanded
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                const isActive = navLinks.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', String(isActive));
+            });
+        }
+
+        // Close mobile menu when clicking on a link and set active link class
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                // regular behavior handled by smooth-scroll; ensure mobile menu closes
+                if (navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                    if (hamburger) hamburger.setAttribute('aria-expanded', 'false');
+                }
+                // mark clicked link as active
+                document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+
+        // Scrollspy: highlight nav link for current section
+        const sections = document.querySelectorAll('section[id]');
+        window.addEventListener('scroll', () => {
+            const fromTop = window.scrollY + 120;
+            sections.forEach(section => {
+                if (section.offsetTop <= fromTop && section.offsetTop + section.offsetHeight > fromTop) {
+                    const id = section.getAttribute('id');
+                    document.querySelectorAll('.nav-links a').forEach(a => {
+                        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+                    });
+                }
+            });
+        });
+        
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('header-scrolled');
+            } else {
+                header.classList.remove('header-scrolled');
+            }
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
